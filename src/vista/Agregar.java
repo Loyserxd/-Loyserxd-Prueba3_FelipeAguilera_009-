@@ -5,6 +5,8 @@
  */
 package vista;
 
+import modelo.Pelicula;
+
 /**
  *
  * @author loyse
@@ -31,7 +33,7 @@ public class Agregar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jtxt_titulo = new javax.swing.JTextField();
         jtxt_estreno = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        enviar_agregar = new javax.swing.JButton();
         jbtn_volver = new javax.swing.JButton();
         jtxt_descripcion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -58,8 +60,13 @@ public class Agregar extends javax.swing.JFrame {
         jtxt_estreno.setBackground(new java.awt.Color(255, 255, 255));
         jtxt_estreno.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Enviar");
+        enviar_agregar.setForeground(new java.awt.Color(0, 0, 0));
+        enviar_agregar.setText("Enviar");
+        enviar_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviar_agregarActionPerformed(evt);
+            }
+        });
 
         jbtn_volver.setForeground(new java.awt.Color(0, 0, 0));
         jbtn_volver.setText("Volver");
@@ -96,7 +103,7 @@ public class Agregar extends javax.swing.JFrame {
                                 .addGap(24, 24, 24)
                                 .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(enviar_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(67, 67, 67))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -130,7 +137,7 @@ public class Agregar extends javax.swing.JFrame {
                         .addComponent(jtxt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enviar_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
@@ -156,6 +163,10 @@ public class Agregar extends javax.swing.JFrame {
        this.jtxt_descripcion.setText("");
        this.jtxt_titulo.requestFocus();
     }//GEN-LAST:event_jbtn_limpiarActionPerformed
+
+    private void enviar_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_agregarActionPerformed
+      
+    }//GEN-LAST:event_enviar_agregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,7 +204,7 @@ public class Agregar extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton enviar_agregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -36,7 +36,7 @@ public class Compra extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jchk_jack = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
-        jcomb_sala = new javax.swing.JComboBox<>();
+        ListaSalas = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jbtn_enviar = new javax.swing.JButton();
         jbtn_agregar = new javax.swing.JButton();
@@ -81,8 +81,13 @@ public class Compra extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Seleccione que pelicula desea ver: ");
 
-        jcomb_sala.setForeground(new java.awt.Color(0, 0, 0));
-        jcomb_sala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        ListaSalas.setForeground(new java.awt.Color(0, 0, 0));
+        ListaSalas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        ListaSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaSalasActionPerformed(evt);
+            }
+        });
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Seleccione Sala:");
@@ -155,15 +160,6 @@ public class Compra extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jchk_spider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 222, Short.MAX_VALUE)))
-                        .addGap(283, 283, 283))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -175,15 +171,23 @@ public class Compra extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(42, 42, 42)
-                                        .addComponent(jcomb_sala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(ListaSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jbtn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36))))))
+                                .addGap(36, 36, 36))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jchk_spider, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +207,7 @@ public class Compra extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcomb_sala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ListaSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,14 +240,32 @@ public class Compra extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_nombreActionPerformed
 
     private void jbtn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_enviarActionPerformed
-        
+        String sala = ListaSalas.getSelectedItem().toString();
         String nombre = this.jtxt_nombre.getText();
         if (nombre.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ingrese titulo","validacion",1);
             this.jtxt_nombre.requestFocus();
             return;
-                
+        }      
+             if (this.jchk_spider.isSelected()){
+            
+               JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'Spiderman No way home', ha sido efectuada, tu sala es la numero "+ sala );
+           
+           }
+             if(this.jchk_jack.isSelected()){
+                 JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'jack en la caja maldita', ha sido efectuada, tu sala es la numero "+ sala );
+             }
+             if(this.jchk_enca.isSelected()){
+                JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'Encanto', ha sido efectuada, tu sala es la numero "+ sala );
+
+             }
+             
     }//GEN-LAST:event_jbtn_enviarActionPerformed
+
+    private void ListaSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaSalasActionPerformed
+        //String sala = ListaSalas.getSelectedItem().toString();
+        
+    }//GEN-LAST:event_ListaSalasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,6 +303,7 @@ public class Compra extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ListaSalas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -295,7 +318,6 @@ public class Compra extends javax.swing.JFrame {
     private javax.swing.JCheckBox jchk_enca;
     private javax.swing.JCheckBox jchk_jack;
     private javax.swing.JCheckBox jchk_spider;
-    private javax.swing.JComboBox<String> jcomb_sala;
     private javax.swing.JMenuItem jmenu_inicio;
     private javax.swing.JMenuItem jmenu_salir;
     private javax.swing.JTextField jtxt_nombre;
