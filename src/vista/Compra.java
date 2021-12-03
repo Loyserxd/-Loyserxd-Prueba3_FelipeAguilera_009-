@@ -37,7 +37,7 @@ public class Compra extends javax.swing.JFrame {
         jcomb_sala = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jbtn_enviar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbtn_agregar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -81,15 +81,20 @@ public class Compra extends javax.swing.JFrame {
         jbtn_enviar.setForeground(new java.awt.Color(0, 0, 0));
         jbtn_enviar.setText("Enviar");
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Agregar");
+        jbtn_agregar.setBackground(new java.awt.Color(204, 204, 204));
+        jbtn_agregar.setForeground(new java.awt.Color(0, 0, 0));
+        jbtn_agregar.setText("Agregar");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Si desea ver otra pelicula puede solicitarla aqui:");
 
         jMenu1.setText("Menu");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jmenu_inicio.setText("Inicio");
         jmenu_inicio.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +105,11 @@ public class Compra extends javax.swing.JFrame {
         jMenu1.add(jmenu_inicio);
 
         jmenu_salir.setText("Salir");
+        jmenu_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenu_salirActionPerformed(evt);
+            }
+        });
         jMenu1.add(jmenu_salir);
 
         jMenuBar1.add(jMenu1);
@@ -145,7 +155,7 @@ public class Compra extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36))))
         );
         layout.setVerticalGroup(
@@ -170,7 +180,7 @@ public class Compra extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
@@ -181,6 +191,14 @@ public class Compra extends javax.swing.JFrame {
     private void jmenu_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenu_inicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmenu_inicioActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jmenu_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenu_salirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jmenu_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,7 +236,6 @@ public class Compra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -228,6 +245,7 @@ public class Compra extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JButton jbtn_agregar;
     private javax.swing.JButton jbtn_enviar;
     private javax.swing.JCheckBox jchk_enca;
     private javax.swing.JCheckBox jchk_jack;
