@@ -35,7 +35,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
@@ -123,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jbtn_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_compraActionPerformed
-        // TODO add your handling code here:
+        new Compra().setVisible(true);
     }//GEN-LAST:event_jbtn_compraActionPerformed
 
     /**
