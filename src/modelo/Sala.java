@@ -14,16 +14,16 @@ import java.util.Date;
 public class Sala {
     
     private int idsala;
-    private int asiento;
+    private int asientos;
     private Date fecha;
     private boolean disponibilidad;
 
     public Sala() {
     }
 
-    public Sala(int idsala, int asiento, Date fecha, boolean disponibilidad) {
+    public Sala(int idsala, int asientos, Date fecha, boolean disponibilidad) {
         this.idsala = idsala;
-        this.asiento = asiento;
+        this.asientos = asientos;
         this.fecha = fecha;
         this.disponibilidad = disponibilidad;
     }
@@ -36,12 +36,12 @@ public class Sala {
         this.idsala = idsala;
     }
 
-    public int getAsiento() {
-        return asiento;
+    public int getAsientos() {
+        return asientos;
     }
 
-    public void setAsiento(int asiento) {
-        this.asiento = asiento;
+    public void setAsientos(int asientos) {
+        this.asientos = asientos;
     }
 
     public Date getFecha() {
@@ -62,7 +62,7 @@ public class Sala {
 
     @Override
     public String toString() {
-        return "Sala{" + "idsala=" + idsala + ", asiento=" + asiento + ", fecha=" + fecha + ", disponibilidad=" + disponibilidad + '}';
+        return "Sala{" + "idsala=" + idsala + ", asientos=" + asientos + ", fecha=" + fecha + ", disponibilidad=" + disponibilidad + '}';
     }
     
     

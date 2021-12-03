@@ -30,9 +30,9 @@ public class Registro_Sala {
 
             date = sala.getFecha();
 
-            String query = "INSERT INTO sala(asiento,fecha,disponibilidad)VALUES(?,?,?)";
+            String query = "INSERT INTO sala(asientos,fecha,disponibilidad)VALUES(?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setInt(1, sala.getAsiento());
+            stmt.setInt(1, sala.getAsientos());
             stmt.setDate(2, new java.sql.Date(date.getTime()));
             stmt.setBoolean(3, sala.isDisponibilidad());
 
@@ -57,10 +57,10 @@ public class Registro_Sala {
             Connection cnx = con.obtenerConexion();
             date = sala.getFecha();
 
-            String query = "UPDATE sala set asiento = ?,fecha =?,disponibilidad=? WHERE idsala =?";
+            String query = "UPDATE sala set asientos = ?,fecha =?,disponibilidad=? WHERE idsala =?";
             PreparedStatement stmt = cnx.prepareStatement(query);
      
-            stmt.setInt(1, sala.getAsiento());
+            stmt.setInt(1, sala.getAsientos());
             stmt.setDate(2, new java.sql.Date(date.getTime()));
             stmt.setBoolean(3, sala.isDisponibilidad());
             stmt.setInt(4, sala.getIdsala());
@@ -107,13 +107,14 @@ public class Registro_Sala {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "SELECT idsala,fecha,disponible FROM sala WHERE idsala = ?";
+            String query = "SELECT idsala,asientos,fecha,disponible FROM sala WHERE idsala = ?";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setInt(1, idSala);
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 sala.setIdsala(rs.getInt("idsala"));
+                sala.setAsientos(rs.getInt("asientos"));
                 sala.setFecha(rs.getDate("fecha"));
                 sala.setDisponibilidad(rs.getBoolean("disponible"));
 
@@ -139,14 +140,14 @@ public class Registro_Sala {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "SELECT idsala,asiento,fecha,disponibilidad FROM sala order by asiento";
+            String query = "SELECT idsala,asientos,fecha,disponibilidad FROM sala order by asiento";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Sala sala = new Sala();
                 sala.setIdsala(rs.getInt("idsala"));
-                sala.setAsiento(rs.getInt("asiento"));
+                sala.setAsientos(rs.getInt("asientos"));
                 sala.setFecha(rs.getDate("fecha"));
                 sala.setDisponibilidad(rs.getBoolean("disponible"));
 
