@@ -30,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jbtn_compra = new javax.swing.JButton();
-        jbtn_cancelar = new javax.swing.JButton();
+        jbtn_eliminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,10 +60,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jbtn_cancelar.setBackground(new java.awt.Color(51, 51, 51));
-        jbtn_cancelar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbtn_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_cancelar.setText("Cancelar Boleto");
+        jbtn_eliminar.setBackground(new java.awt.Color(51, 51, 51));
+        jbtn_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbtn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_eliminar.setText("Eliminar Pelicula");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/Cine2.PNG"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -81,7 +81,7 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbtn_compra, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(jbtn_cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jbtn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(54, 54, 54)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -97,7 +97,7 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jbtn_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(112, 112, 112)
-                        .addComponent(jbtn_cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,8 +169,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton jbtn_cancelar;
     private javax.swing.JButton jbtn_compra;
+    private javax.swing.JButton jbtn_eliminar;
     // End of variables declaration//GEN-END:variables
 }
 

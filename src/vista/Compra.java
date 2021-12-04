@@ -41,9 +41,12 @@ public class Compra extends javax.swing.JFrame {
         jbtn_enviar = new javax.swing.JButton();
         jbtn_agregar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jlbl_spider_precio = new javax.swing.JLabel();
+        jlbl_encanto_precio = new javax.swing.JLabel();
+        jlbl_jack_precio = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jmenu_inicio = new javax.swing.JMenuItem();
+        listar = new javax.swing.JMenuItem();
         jmenu_salir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -114,6 +117,15 @@ public class Compra extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Si desea ver otra pelicula puede solicitarla aqui:");
 
+        jlbl_spider_precio.setForeground(new java.awt.Color(0, 0, 0));
+        jlbl_spider_precio.setText("$5.000");
+
+        jlbl_encanto_precio.setForeground(new java.awt.Color(0, 0, 0));
+        jlbl_encanto_precio.setText("$4.000");
+
+        jlbl_jack_precio.setForeground(new java.awt.Color(0, 0, 0));
+        jlbl_jack_precio.setText("$3.500");
+
         jMenu1.setForeground(new java.awt.Color(0, 0, 0));
         jMenu1.setText("Menu");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,14 +134,14 @@ public class Compra extends javax.swing.JFrame {
             }
         });
 
-        jmenu_inicio.setForeground(new java.awt.Color(0, 0, 0));
-        jmenu_inicio.setText("Inicio");
-        jmenu_inicio.addActionListener(new java.awt.event.ActionListener() {
+        listar.setForeground(new java.awt.Color(0, 0, 0));
+        listar.setText("Listar");
+        listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmenu_inicioActionPerformed(evt);
+                listarActionPerformed(evt);
             }
         });
-        jMenu1.add(jmenu_inicio);
+        jMenu1.add(listar);
 
         jmenu_salir.setForeground(new java.awt.Color(0, 0, 0));
         jmenu_salir.setText("Salir");
@@ -186,7 +198,13 @@ public class Compra extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jchk_spider, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jchk_spider, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlbl_encanto_precio)
+                                    .addComponent(jlbl_spider_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlbl_jack_precio))))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -199,11 +217,17 @@ public class Compra extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jchk_spider)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jchk_spider)
+                    .addComponent(jlbl_spider_precio))
                 .addGap(26, 26, 26)
-                .addComponent(jchk_enca)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jchk_enca)
+                    .addComponent(jlbl_encanto_precio))
                 .addGap(31, 31, 31)
-                .addComponent(jchk_jack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jchk_jack)
+                    .addComponent(jlbl_jack_precio))
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,9 +243,9 @@ public class Compra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmenu_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenu_inicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmenu_inicioActionPerformed
+    private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
+        new Listar().setVisible(true);
+    }//GEN-LAST:event_listarActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
          new Menu().setVisible(true);
@@ -243,20 +267,20 @@ public class Compra extends javax.swing.JFrame {
         String sala = ListaSalas.getSelectedItem().toString();
         String nombre = this.jtxt_nombre.getText();
         if (nombre.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ingrese titulo","validacion",1);
+            JOptionPane.showMessageDialog(this, "Ingrese Nombre","validacion",1);
             this.jtxt_nombre.requestFocus();
             return;
         }      
              if (this.jchk_spider.isSelected()){
             
-               JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'Spiderman No way home', ha sido efectuada, tu sala es la numero "+ sala );
+               JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'Spiderman No way home', ha sido efectuada, "+this.jlbl_spider_precio.getText()+ " tu sala es la numero "+ sala );
            
            }
              if(this.jchk_jack.isSelected()){
-                 JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'jack en la caja maldita', ha sido efectuada, tu sala es la numero "+ sala );
+                 JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'jack en la caja maldita', ha sido efectuada, "+this.jlbl_jack_precio.getText()+" tu sala es la numero "+ sala );
              }
              if(this.jchk_enca.isSelected()){
-                JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'Encanto', ha sido efectuada, tu sala es la numero "+ sala );
+                JOptionPane.showMessageDialog(this, "Hola " + nombre +" tu compra por 'Encanto', ha sido efectuada, " +this.jlbl_encanto_precio.getText() +" tu sala es la numero "+ sala );
 
              }
              
@@ -318,8 +342,11 @@ public class Compra extends javax.swing.JFrame {
     private javax.swing.JCheckBox jchk_enca;
     private javax.swing.JCheckBox jchk_jack;
     private javax.swing.JCheckBox jchk_spider;
-    private javax.swing.JMenuItem jmenu_inicio;
+    private javax.swing.JLabel jlbl_encanto_precio;
+    private javax.swing.JLabel jlbl_jack_precio;
+    private javax.swing.JLabel jlbl_spider_precio;
     private javax.swing.JMenuItem jmenu_salir;
     private javax.swing.JTextField jtxt_nombre;
+    private javax.swing.JMenuItem listar;
     // End of variables declaration//GEN-END:variables
 }

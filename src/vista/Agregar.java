@@ -5,6 +5,12 @@
  */
 package vista;
 
+import controlador.Registro_Pelicula;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import modelo.Pelicula;
 
 /**
@@ -20,6 +26,7 @@ public class Agregar extends javax.swing.JFrame {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,14 +39,19 @@ public class Agregar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtxt_titulo = new javax.swing.JTextField();
-        jtxt_estreno = new javax.swing.JTextField();
+        jtxt_dia = new javax.swing.JTextField();
         enviar_agregar = new javax.swing.JButton();
         jbtn_volver = new javax.swing.JButton();
         jbtn_limpiar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jchk_disponible = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
+        jtxt_mes = new javax.swing.JTextField();
+        jtxt_año = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jtxt_dia2 = new javax.swing.JTextField();
+        jtxt_mes2 = new javax.swing.JTextField();
+        jtxt_año2 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -53,14 +65,26 @@ public class Agregar extends javax.swing.JFrame {
 
         jtxt_titulo.setBackground(new java.awt.Color(255, 255, 255));
         jtxt_titulo.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_titulo.setText("Ingresar Titulo");
+        jtxt_titulo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_tituloFocusGained(evt);
+            }
+        });
         jtxt_titulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_tituloActionPerformed(evt);
             }
         });
 
-        jtxt_estreno.setBackground(new java.awt.Color(255, 255, 255));
-        jtxt_estreno.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_dia.setBackground(new java.awt.Color(255, 255, 255));
+        jtxt_dia.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_dia.setText("dd");
+        jtxt_dia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_diaFocusGained(evt);
+            }
+        });
 
         enviar_agregar.setForeground(new java.awt.Color(0, 0, 0));
         enviar_agregar.setText("Enviar");
@@ -78,6 +102,7 @@ public class Agregar extends javax.swing.JFrame {
             }
         });
 
+        jbtn_limpiar.setForeground(new java.awt.Color(0, 0, 0));
         jbtn_limpiar.setText("Limpiar");
         jbtn_limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,15 +110,60 @@ public class Agregar extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Fecha Actual: ");
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("¿Esta disponible actualmente?");
+
+        jtxt_mes.setBackground(new java.awt.Color(255, 255, 255));
+        jtxt_mes.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_mes.setText("mm");
+        jtxt_mes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_mesFocusGained(evt);
+            }
+        });
+
+        jtxt_año.setBackground(new java.awt.Color(255, 255, 255));
+        jtxt_año.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_año.setText("aaaa");
+        jtxt_año.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_añoFocusGained(evt);
+            }
+        });
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("dd/mm/aaaa");
+
+        jtxt_dia2.setBackground(new java.awt.Color(255, 255, 255));
+        jtxt_dia2.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_dia2.setText("dd");
+        jtxt_dia2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_dia2FocusGained(evt);
+            }
+        });
+
+        jtxt_mes2.setBackground(new java.awt.Color(255, 255, 255));
+        jtxt_mes2.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_mes2.setText("mm");
+        jtxt_mes2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_mes2FocusGained(evt);
+            }
+        });
+
+        jtxt_año2.setBackground(new java.awt.Color(255, 255, 255));
+        jtxt_año2.setForeground(new java.awt.Color(0, 0, 0));
+        jtxt_año2.setText("aaaa");
+        jtxt_año2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_año2FocusGained(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Ingrese Fecha Actual:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +174,7 @@ public class Agregar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(enviar_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,18 +182,34 @@ public class Agregar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtxt_titulo)
-                                .addComponent(jtxt_estreno, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                                .addComponent(jTextField1))
-                            .addComponent(jchk_disponible, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtxt_titulo)
+                            .addComponent(jchk_disponible, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jtxt_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jtxt_dia2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jtxt_mes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtxt_año, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jtxt_mes2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtxt_año2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addContainerGap(330, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,16 +221,21 @@ public class Agregar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_estreno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jtxt_dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_año, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                    .addComponent(jtxt_año2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_mes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_dia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jchk_disponible)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enviar_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,15 +256,114 @@ public class Agregar extends javax.swing.JFrame {
 
     private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
        this.jtxt_titulo.setText("");
-       this.jtxt_estreno.setText("");
-       this.jtxt_descripcion.setText("");
+       this.jtxt_dia.setText("");
+       this.jtxt_dia.setText("");
+       this.jtxt_mes.setText("");
+       this.jtxt_año.setText("");
        this.jtxt_titulo.requestFocus();
     }//GEN-LAST:event_jbtn_limpiarActionPerformed
 
     private void enviar_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_agregarActionPerformed
-      
+        
+        String titulo,dia,mes,ano,estrenoStr,fechaStr;
+        Date estreno,fecha;
+        boolean disponible;
+        
+        titulo = this.jtxt_titulo.getText();
+        if(titulo.isEmpty()){
+           JOptionPane.showMessageDialog(this, "Ingrese Titulo","Validación",1);
+           this.jtxt_titulo.requestFocus();
+           return;
+           
+        }
+        
+        dia = this.jtxt_dia.getText();
+        mes = this.jtxt_mes.getText();
+        ano = this.jtxt_año.getText();
+        
+        if(dia.isEmpty() || mes.isEmpty() || ano.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingrese fecha" ,"validacion",1);
+            this.jtxt_dia.requestFocus();
+            return;
+        }
+        
+        estrenoStr = dia+"/"+mes+"/"+ano;
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/YYYY");
+        
+        try {
+            estreno = formato.parse(estrenoStr);
+            
+        } catch (ParseException e) {
+          JOptionPane.showMessageDialog(this, "Ingrese fecha en el formato dd/mm/aaaa","validacion",1);  
+          this.jtxt_dia.requestFocus();
+          return;
+        }
+        
+        fechaStr = dia+"/"+mes+"/"+ano;
+        SimpleDateFormat formato1 = new SimpleDateFormat("dd/MM/YYYY");
+        
+        try {
+            fecha = formato1.parse(fechaStr);
+            
+        } catch (ParseException e) {
+          JOptionPane.showMessageDialog(this, "Ingrese fecha en el formato dd/mm/aaaa","validacion",1);  
+          this.jtxt_dia2.requestFocus();
+          return;
+        }
+        
+        
+        disponible = this.jchk_disponible.isSelected();
+        
+       Pelicula pelicula = new Pelicula(0, titulo, estreno, fecha, disponible);
+       
+       Registro_Pelicula reg = new Registro_Pelicula();
+       
+       if (reg.agregar(pelicula)) {
+           JOptionPane.showMessageDialog(this,"Se agrego Pelicula","Aviso",1);
+           
+           
+       }else{
+           JOptionPane.showMessageDialog(this, "No se agrego el libro", "Aviso",1);
+       }
     }//GEN-LAST:event_enviar_agregarActionPerformed
 
+    private void jtxt_tituloFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_tituloFocusGained
+        this.jtxt_titulo.setText("");
+    }//GEN-LAST:event_jtxt_tituloFocusGained
+
+    private void jtxt_diaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_diaFocusGained
+        this.jtxt_dia.setText("");
+        
+    }//GEN-LAST:event_jtxt_diaFocusGained
+
+    private void jtxt_mesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_mesFocusGained
+       this.jtxt_mes.setText("");
+    }//GEN-LAST:event_jtxt_mesFocusGained
+
+    private void jtxt_añoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_añoFocusGained
+        this.jtxt_año.setText("");
+    }//GEN-LAST:event_jtxt_añoFocusGained
+
+    private void jtxt_dia2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_dia2FocusGained
+        this.jtxt_dia2.setText("");
+    }//GEN-LAST:event_jtxt_dia2FocusGained
+
+    private void jtxt_mes2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_mes2FocusGained
+        this.jtxt_mes2.setText("");
+    }//GEN-LAST:event_jtxt_mes2FocusGained
+
+    private void jtxt_año2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_año2FocusGained
+       this.jtxt_año2.setText("");
+    }//GEN-LAST:event_jtxt_año2FocusGained
+
+//obtener Fecha actual metodo
+    public static String fechaActual(){
+    Date fecha_a= new Date();
+    SimpleDateFormat formatoFecha =new SimpleDateFormat("dd/MM/YYYY");
+    
+    return formatoFecha.format(fecha_a);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -214,12 +404,17 @@ public class Agregar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbtn_limpiar;
     private javax.swing.JButton jbtn_volver;
     private javax.swing.JCheckBox jchk_disponible;
-    private javax.swing.JTextField jtxt_estreno;
+    private javax.swing.JTextField jtxt_año;
+    private javax.swing.JTextField jtxt_año2;
+    private javax.swing.JTextField jtxt_dia;
+    private javax.swing.JTextField jtxt_dia2;
+    private javax.swing.JTextField jtxt_mes;
+    private javax.swing.JTextField jtxt_mes2;
     private javax.swing.JTextField jtxt_titulo;
     // End of variables declaration//GEN-END:variables
 }
