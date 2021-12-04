@@ -53,6 +53,11 @@ public class Eliminar extends javax.swing.JFrame {
         jbtn_eliminar.setBackground(new java.awt.Color(204, 204, 204));
         jbtn_eliminar.setForeground(new java.awt.Color(0, 0, 0));
         jbtn_eliminar.setText("Eliminar");
+        jbtn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_eliminarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -65,6 +70,11 @@ public class Eliminar extends javax.swing.JFrame {
         jbtn_salir.setBackground(new java.awt.Color(204, 204, 204));
         jbtn_salir.setForeground(new java.awt.Color(0, 0, 0));
         jbtn_salir.setText("Salir");
+        jbtn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,6 +124,30 @@ public class Eliminar extends javax.swing.JFrame {
     private void jtxt_buscaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_buscaidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_buscaidActionPerformed
+
+    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
+        int id;
+        
+        id = Integer.parseInt(this.jtxt_buscaid.getText());
+        
+        Registro_Pelicula reg = new Registro_Pelicula();
+        
+        int opcion = JOptionPane.showConfirmDialog(this, "Seguro que desea eliminar pelicula?", "eliminar",0);
+        
+        if (opcion == 0) {
+            reg.eliminar(id);
+                JOptionPane.showMessageDialog(this,"Pelicula eliminada con exito", "Eliminar",3);
+                
+                
+        }else{
+                JOptionPane.showMessageDialog(this,"Pelicula no se ha eliminado", "Eliminar",2);
+        }
+        
+    }//GEN-LAST:event_jbtn_eliminarActionPerformed
+
+    private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbtn_salirActionPerformed
 
     /**
      * @param args the command line arguments
