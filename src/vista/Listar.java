@@ -38,7 +38,7 @@ public class Listar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_datos = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jbtn_buscar.setBackground(new java.awt.Color(204, 204, 204));
         jbtn_buscar.setForeground(new java.awt.Color(0, 0, 0));
@@ -129,8 +129,18 @@ public class Listar extends javax.swing.JFrame {
                 id = pelicula.getIdpelicula();
                 titulo = pelicula.getTitulo();
                 disponible = pelicula.isDisponible();
+                
+                modelo.addRow(new Object []{id,titulo,disponible});
             }
-        }
+        }else{
+        
+            Pelicula pelicula = reg.buscarPorId(id);
+            id = pelicula.getIdpelicula();
+            titulo = pelicula.getTitulo();
+            disponible = pelicula.isDisponible();
+            
+            modelo.addRow(new Object []{id,titulo,disponible});
+        } 
         
     }//GEN-LAST:event_jbtn_buscarActionPerformed
 

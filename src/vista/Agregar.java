@@ -251,15 +251,17 @@ public class Agregar extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_tituloActionPerformed
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
-        new Compra().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jbtn_volverActionPerformed
 
     private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
        this.jtxt_titulo.setText("");
        this.jtxt_dia.setText("");
-       this.jtxt_dia.setText("");
        this.jtxt_mes.setText("");
        this.jtxt_año.setText("");
+       this.jtxt_dia2.setText("");
+       this.jtxt_mes2.setText("");
+       this.jtxt_año2.setText("");
        this.jtxt_titulo.requestFocus();
     }//GEN-LAST:event_jbtn_limpiarActionPerformed
 

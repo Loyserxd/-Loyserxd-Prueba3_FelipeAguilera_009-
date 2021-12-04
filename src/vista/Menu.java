@@ -64,6 +64,11 @@ public class Menu extends javax.swing.JFrame {
         jbtn_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbtn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_eliminar.setText("Eliminar Pelicula");
+        jbtn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_eliminarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/Cine2.PNG"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -125,6 +130,10 @@ public class Menu extends javax.swing.JFrame {
     private void jbtn_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_compraActionPerformed
         new Compra().setVisible(true);
     }//GEN-LAST:event_jbtn_compraActionPerformed
+
+    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
+         new Eliminar().setVisible(true);
+    }//GEN-LAST:event_jbtn_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
